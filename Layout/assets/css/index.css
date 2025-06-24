@@ -1,0 +1,66 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
+:root {
+    --primary-sidebar: 260px;
+    --secondary-sidebar: 260px;
+}
+
+header {
+    z-index: 1;
+}
+
+/* Layout utama - kolom sidebar kiri */
+@media(min-width: 576px) {
+    .primary-layout {
+        display: flex;
+    }
+
+    .primary-layout > .sidebar {
+        width: var(--primary-sidebar);
+        height: var(--element-height);
+        position: sticky;
+        top: var(--element-top);
+        flex-shrink: 0;
+        transition: 0.2s;
+    }
+
+    .primary-layout > .sidebar.hide {
+        width: 0;
+    }
+
+    .primary-layout > .sidebar .offcanvas-body {
+        width: var(--primary-sidebar);
+    }
+
+    .primary-layout > .main-content {
+        flex-grow: 1;
+    }
+}
+
+/* Layout sekunder - kolom sidebar kanan */
+@media(min-width: 1200px) {
+    .secondary-layout {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .secondary-layout > .sidebar {
+        width: var(--secondary-sidebar);
+        height: var(--element-height);
+        position: sticky;
+        top: var(--element-top);
+        flex-shrink: 0;
+    }
+
+    .secondary-layout > .sidebar .offcanvas-body {
+        width: var(--secondary-sidebar);
+    }
+
+    .secondary-layout > .sidebar.hide {
+        width: 0;
+    }
+
+    .secondary-layout > main {
+        flex-grow: 1;
+    }
+}
